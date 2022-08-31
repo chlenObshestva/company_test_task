@@ -21,4 +21,8 @@ class EmployeeViewSet(
     permission_classes = [IsAuthenticated]
 
 
-
+class DepartmentViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
+    serializer_class = DepartmentSerializer
+    queryset = Department.objects.all()
+    permission_classes = [AllowAny]
+    pagination_class = None
